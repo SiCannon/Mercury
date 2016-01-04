@@ -1,0 +1,61 @@
+﻿<form class="album detail" name="albumDetailForm" novalidate>
+
+    <div>
+        <label>Title</label>
+        <input ng-model="album.Title" name="title">
+    </div>
+
+    <div>
+        <label>Artist</label>
+        <a href="#/artist/{{album.ArtistId}}">{{album.ArtistName}}</a>
+        <button ng-click="selectArtist()">{{hasArtist() ? "change..." : "set..."}}</button>
+        <button ng-click="removeArtist()" ng-show="hasArtist()">remove</button>
+    </div>
+
+    <div>
+        <label>Mbz Id</label>
+        <input ng-model="album.MusicBrainzReleaseGroupId" name="mbzid" mp-guid mp-desc="Mbz Id">
+    </div>
+
+    <div>
+        <label>Barcode</label>
+        <input ng-model="album.Barcode" name="barcode">
+    </div>
+
+    <div>
+        <label>Year</label>
+        <input ng-model="album.Year" name="year">
+    </div>
+
+    <div>
+        <label>Top 3k</label>
+        <input ng-model="album.Top3kPosition" name="top3k">
+    </div>
+
+    <div class="tracks">
+        <label>Tracks</label>
+        <div>
+            <table>
+                <tbody>
+                    <tr ng-repeat="track in album.Tracks">
+                        <td class="position">{{track.Position}}</td>
+                        <td class="separator"></td>
+                        <td class="title">{{track.RecordingTitle}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="" ng-click="selectNewTrack()">add track...</a>
+        </div>
+    </div>
+
+    <div>
+        <button ng-click="Submit(true)">Save</button>
+        <button ng-click="Submit(false)">Apply</button>
+        <button ng-click="GoBack()">Cancel</button>
+    </div>
+
+    <div style="margin-top: 20px">
+        <img ng-if="album.HasThumbnail" ng-src="/CoverArt/Album/{{album.MusicBrainzReleaseGroupId}}.jpg">
+    </div>
+
+</form>

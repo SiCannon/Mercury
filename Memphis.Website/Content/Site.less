@@ -1,0 +1,237 @@
+﻿@import (reference) "bootstrap/variables.less";
+
+body {
+    padding-top: 15px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    /*max-width: 280px;*/
+}
+
+.btn[disabled] {
+    pointer-events: inherit !important;
+}
+button[disabled] {
+    cursor: not-allowed !important;
+    color: #ccc;
+}
+input[disabled] {
+    cursor: not-allowed !important;
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+ul.menu {
+    padding-left: 0;
+    list-style-type: none;
+    li {
+        display: inline;
+        a {
+            padding: 4px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            &:hover {
+                background-color: #ccc;
+            }
+        }
+    }
+}
+
+form.detail {
+
+    @label-width: 100px;
+
+    label {
+        width: @label-width;
+    }
+
+    input {
+        width: 320px;
+    }
+
+    .error {
+        padding-left: @label-width;
+        color: @brand-danger;
+    }
+}
+
+form.artist {
+    
+    .tag-list {
+
+        >label {
+            vertical-align: top;
+        }
+
+        >ul {
+            display: inline-block;
+            list-style-type: none;
+            padding-left: 0px;
+            i.fa {
+                font-size: 12px;
+            }
+        }
+
+        .changed {
+            color: @brand-warning;
+        }
+
+        .new {
+            color: @brand-info;
+        }
+
+        .deleted {
+            text-decoration: line-through;
+            color: mix(@text-color, @body-bg, 20%);
+        }
+
+        span.name {
+            cursor: pointer;
+            &:hover {
+                color: @link-color;
+            }
+        }
+
+        input {
+            border: 0px;
+        }
+
+        .tags {
+            display: inline-block;
+            width: 320px;
+            >span div {
+                display: inline-block;
+            }
+            input {
+                width: 200px;
+            }
+        }
+    }
+}
+
+i.fa.button {
+    color: lighten(@text-color, 20%);
+}
+
+a i.fa.button:hover {
+    color: @link-color;
+}
+
+
+.album-list {
+    
+    @thumbsize: 70px;
+    @gap: 8px;
+
+    margin-top: @gap;
+    .album {
+        margin-top: @gap;
+        color: @text-color;
+        &:hover {
+            background-color: lighten(@link-color, 51%);
+            .text .title {
+                color: @link-color;
+            }
+        }
+    }
+    .thumb {
+        float: left;
+        width: @thumbsize;
+        height: @thumbsize;
+        box-shadow: 2px 2px 5px #aaa;
+        img {
+            width: @thumbsize;
+            height: @thumbsize;
+            max-width: @thumbsize;
+            max-height: @thumbsize;
+        }
+        .missing-coverart {
+            display: inline-block;
+            width: @thumbsize;
+            height: @thumbsize;
+            font-size: 20px;
+            padding-left: 6px;
+            padding-top: 2px;
+            background-color: #eee;
+            i.fa {
+                color: #ccc;
+            }
+        }
+    }
+    .text {
+        float: left;
+        margin-left: 10px;
+        .title {
+            font-size: @font-size-h4;
+        }
+        .artist {
+            display: inline-block;
+        }
+        .year {
+            display: inline-block;
+            color: @gray-light;
+            &::before {
+                content: "[";
+            }
+            &::after {
+                content: "]";
+            }
+        }
+        .t3kposition {
+            i {
+                font-size: 9px;
+            }
+            &.label-default {
+                background-color: #aaa;
+            }
+        }
+    }
+    .pagecount {
+        //margin-top: @gap;
+    }
+}
+
+form.album {
+    .tracks {
+        >label {
+            vertical-align: top;
+        }
+        >div {
+            display: inline-block;
+            td.position {
+                text-align: right;
+            }
+            td.separator {
+                width: 10px;
+            }
+        }
+    }
+}
+
+.loading-container {
+    position: relative;
+}
+
+.loading {
+    position: absolute;
+    margin: auto;
+    left: 0; right: 0; top: 0; bottom: 0;
+    background-color: #ccc;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 2px;
+    opacity: 0.8;
+}

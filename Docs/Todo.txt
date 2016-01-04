@@ -1,0 +1,50 @@
+- page status: loading, loaded, error
+
+- paging info cache: include search parameters
+
+- find a way of finding an item in the list to show where it now is
+	- idea: go back to the same page at first but start an async process to find the item and indicate to the user that this is happening
+
+- error page: do not replace URL with /#/error but keep erroring URL so that user can go back
+	
+- unit tests for all JS files
+
+- unit tests for C# files?
+
+- error handling:
+	- exception when call ArtistService.get() with no id specified, otherwise the GET returns a list of artists
+	- error message when invalid id on artist detail page
+
+- refactor mpEditableArtistTag.js
+	- originalTag is local
+	- get input element during creation
+	- unit tests should ensure these changes are valid
+
+- remove TagId from TagDto, and maybe remove TagDto altogether?
+
+- "none found" message on listing page
+
+- "loading..." messages
+
+- artist tags broken in IE
+
+- test in Firefox and on mobile
+
+- don't allow entire tag text to be deleted
+
+- move views to templates
+
+- Get Releases
+
+- Angular: can we have multiple instances of the same controller?
+
+	- this would allow us to make the paging service into a controller
+	- but also: can we have two artist edits on the same page at the same time for different artists?
+
+- Bootstrap LESS
+
+new items:
+	add new item
+	in watch function, set new item as NEW
+	NEW means it is selected
+	as soon as any item is ok-ed it is no longer new

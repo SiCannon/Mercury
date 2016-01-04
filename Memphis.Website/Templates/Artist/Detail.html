@@ -1,0 +1,43 @@
+﻿ <form class="artist detail" name="artistDetailForm" novalidate>
+
+    <div>
+        <label>Name</label>
+        <input ng-model="Artist.Name" ng-change="NameChanged()" required name="name">
+        <p class="error" ng-show="artistDetailForm.name.$invalid && submitted">Name is required</p>
+    </div>
+
+    <div>
+        <label>Sort Name <input type="checkbox" ng-model="HasCustomSortName" ng-change="SortNameClicked()" style="width:20px"></label>
+        <input ng-model="Artist.SortName" ng-change="SortNameChanged()" ng-disabled="!HasCustomSortName">
+    </div>
+
+    <div>
+        <label>Mbz Id</label>
+        <input ng-model="Artist.MusicBrainzId" name="mbzid" mp-guid mp-desc="Mbz Id" mp-show-error="submitted">
+    </div>
+
+    <div class="tag-list">
+        <label>Tags</label>
+        <div class="tags">
+            <span ng-repeat="artag in Artist.ArtistTags | orderBy: 'Tag.Name' : false ">
+                <mp-editable-artist-tag artist-tag="artag"></mp-editable-artist-tag>
+            </span>
+            <a href="" ng-click="newTag()">new...</a>
+        </div>
+        <!--<ul>
+            <li ng-repeat="artag in Artist.ArtistTags | orderBy: 'Tag.Name' : false ">
+                <mp-editable-artist-tag artist-tag="artag"></mp-editable-artist-tag>
+            </li>
+            <li>
+                <a href="" ng-click="newTag()">new...</a>
+            </li>
+        </ul>-->
+    </div>
+
+    <div>
+        <button ng-click="Submit(true)">Save</button>
+        <button ng-click="Submit(false)">Apply</button>
+        <button ng-click="Cancel()">Cancel</button>
+    </div>
+
+</form>

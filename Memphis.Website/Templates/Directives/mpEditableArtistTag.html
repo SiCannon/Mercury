@@ -1,0 +1,27 @@
+﻿<div ng-hide="isEditing">
+
+    <a href="" ng-click="toggleDeleteTag()">
+        <i class="fa button" ng-class="artistTag.IsDeleted ? 'fa-plus-circle' : 'fa-times-circle'"></i>
+    </a>
+
+    <span class="name" ng-class="{ changed: artistTag.IsEdited, deleted: artistTag.IsDeleted, new: artistTag.IsNew }" ng-click="beginEditTag()">{{artistTag.Tag.Name}}</span>
+
+    <a href="" ng-click="revert()" ng-show="artistTag.IsEdited && !artistTag.IsNew">
+        <i class="fa fa-undo button"></i>
+    </a>
+
+</div>
+
+<div ng-show="isEditing">
+
+    <a href="" ng-click="endEditTag()"><i class="fa fa-check-circle button"></i></a>
+
+    <input ng-model="artistTag.Tag.Name"
+           ng-model-options="{ updateOn: 'blur' }" 
+           mp-focus="isEditing" 
+           ng-blur="endEditTag()" 
+           mp-enter-press="endEditTag()" 
+           mp-escape-cancel="endEditTag()"
+           class="artist-tag-name">
+
+</div>

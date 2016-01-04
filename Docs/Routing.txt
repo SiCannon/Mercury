@@ -1,0 +1,8 @@
+GET: /api/Artist/165
+ArtistController.GetById(int id)
+
+GET: /api/Artist?pageNumber=2&pageSize=20?searchText=poo
+ArtistController.Query(int pageNumber = 0, int pageSize = 20, string searchText = "", string sortName = "")
+
+GET: /api/ArtistCount?searchText=poo
+ArtistController.Count(string searchText)

@@ -1,0 +1,75 @@
+﻿<div class="album-list">
+
+    <div>
+        <button class="" ng-click="Paging.FirstPage()" ng-disabled="Paging.CurrentPage <= Paging.MinPage()">&laquo;</button>
+        <button class="" ng-click="Paging.PrevPage()" ng-disabled="Paging.CurrentPage <= Paging.MinPage()">&lsaquo;</button>
+        <button class="" ng-click="Paging.NextPage()" ng-disabled="Paging.CurrentPage >= Paging.MaxPage()">&rsaquo;</button>
+        <button class="" ng-click="Paging.LastPage()" ng-disabled="Paging.CurrentPage >= Paging.MaxPage()">&raquo;</button>
+        <span class="pagecount">Page {{Paging.CurrentPage + 1}} of {{Paging.MaxPage() + 1}}</span>
+        <a href="#/album/new">new album...</a>
+        page size:
+        <select ng-model="Paging.PageSize">
+            <option>5</option>
+            <option>10</option>
+            <option>20</option>
+            <option>50</option>
+            <option>100</option>
+            <option>200</option>
+            <option>500</option>
+            <option>1000</option>
+            <option>2000</option>
+            <option>5000</option>
+            <option>10000</option>
+        </select>
+    </div>
+
+    <form>
+        <div>
+            search:
+            <select ng-model="SearchField">
+                <option value="title">Title</option>
+                <option value="artist">Artist</option>
+            </select>
+            for:
+            <input ng-model="SearchText">
+            sort by:
+            <select ng-model="sortBy">
+                <option value="title">Title</option>
+                <option value="artist">Artist</option>
+                <option value="t3kposition">Top 3k</option>
+            </select>
+            <label>Ascending <input type="checkbox" ng-model="sortAscending" style="width:20px"></label>
+            <button type="submit" ng-click="Search(true)">go</button>
+        </div>
+    </form>
+
+    <!--<div style="display: inline-block" class="thumb" ng-repeat="album in Albums" ng-show="hasCoverArt(album)">
+        <img ng-src="{{getCoverArtUrl(album)}}">
+    </div>-->
+
+    <a ng-repeat="album in Albums" href="#/album/{{album.AlbumId}}">
+        <div class="album clearfix">
+            <div class="thumb">
+                <img ng-src="/CoverArt/Album/{{album.MusicBrainzReleaseGroupId}}.jpg" ng-if="album.HasThumbnail">
+                <div class="missing-coverart" ng-if="!album.HasThumbnail">
+                    <i class="fa fa-music"></i>
+                </div>
+            </div>
+            <div class="text">
+                <div class="title">{{album.Title}}</div>
+                <div class="artist">{{album.ArtistName}}</div>
+                <div class="year">{{album.Year}}</div>
+                <div ng-show="album.Top3kPosition">
+                    <div class="t3kposition label label-success"><i class="fa fa-star"></i> {{album.Top3kPosition}}</div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    
+
+    <div>
+        
+    </div>
+
+</div>

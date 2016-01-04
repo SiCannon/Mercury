@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A845794E-5D9E-43E5-B2DA-BA76BEAF26CF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MusicBrainz</RootNamespace>
+    <AssemblyName>MusicBrainz</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CoverArt\CoverArtQueryResult.cs" />
+    <Compile Include="CoverArt\CoverArtWebService.cs" />
+    <Compile Include="Domain\Entity\Artist.cs" />
+    <Compile Include="Domain\Entity\ArtistType.cs" />
+    <Compile Include="Domain\Export\ArtistExport.cs" />
+    <Compile Include="Domain\Infrastructure\MbzContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Infrastructure\MbzDatabaseInitializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Infrastructure\MbzStartup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Service\ArtistService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enrich\Top3k.cs" />
+    <Compile Include="Helpers\ConsoleHelpers.cs" />
+    <Compile Include="Helpers\ExceptionExtensions.cs" />
+    <Compile Include="Helpers\Url.cs" />
+    <Compile Include="Helpers\Xml.cs" />
+    <Compile Include="Populate\PopulateArtists.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryResultCache\MbzqContext.cs" />
+    <Compile Include="QueryResultCache\Query.cs" />
+    <Compile Include="QueryResultCache\QueryService.cs" />
+    <Compile Include="WebService\Entity\Artist.cs" />
+    <Compile Include="WebService\Entity\ArtistCredit.cs" />
+    <Compile Include="WebService\Entity\ArtistQueryResult.cs" />
+    <Compile Include="WebService\Entity\ArtistSearchResultsWrapper.cs" />
+    <Compile Include="WebService\Entity\Isrc.cs" />
+    <Compile Include="WebService\Entity\Medium.cs" />
+    <Compile Include="WebService\Entity\Recording.cs" />
+    <Compile Include="WebService\Entity\RecordingQueryResult.cs" />
+    <Compile Include="WebService\Entity\Relation.cs" />
+    <Compile Include="WebService\Entity\RelationList.cs" />
+    <Compile Include="WebService\Entity\Release.cs" />
+    <Compile Include="WebService\Entity\ReleaseGroup.cs" />
+    <Compile Include="WebService\Entity\ReleaseGroupQueryResult.cs" />
+    <Compile Include="WebService\Entity\ReleaseGroupSearchResults.cs" />
+    <Compile Include="WebService\Entity\ReleaseQueryResult.cs" />
+    <Compile Include="WebService\Entity\Tag.cs" />
+    <Compile Include="WebService\Entity\TextRepresentation.cs" />
+    <Compile Include="WebService\Entity\Track.cs" />
+    <Compile Include="WebService\Entity\Work.cs" />
+    <Compile Include="WebService\Entity\WorkQueryResult.cs" />
+    <Compile Include="WebService\Service\ArtistWebService.cs" />
+    <Compile Include="WebService\Service\RecordingWebService.cs" />
+    <Compile Include="WebService\Service\ReleaseGroupWebService.cs" />
+    <Compile Include="WebService\Service\ReleaseWebService.cs" />
+    <Compile Include="WebService\Service\WorkWebService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Top3000Albums\Top3000Albums.csproj">
+      <Project>{8629286d-8ed2-428a-bed1-ee8445aa1682}</Project>
+      <Name>Top3000Albums</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Data\artists.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,56 @@
+Hi Simon
+
+As discussed, here are some resources that we could use to form the basis of our new non-client specific music database: 
+
+Top 3000 Albums:
+
+http://www.acclaimedmusic.net/
+
+MusicBrainz web service:
+
+Version 1 supports lookups by artist name:
+
+http://musicbrainz.org/doc/XML_Web_Service/Version_1
+
+e.g.: http://musicbrainz.org/ws/1/track/?type=xml&release=automatic+for+the+people&artist=REM
+
+
+Version 2 seems to more rigorously rely on MBID identifiers:
+
+http://wiki.musicbrainz.org/XML_Web_Service/Version_2
+
+e.g. http://musicbrainz.org/ws/2/recording?artist=ea4dfa26-f633-4da6-a52a-f49ea4897b58
+
+Cover art assets:
+
+http://musicbrainz.org/doc/Cover_Art_Archive/API
+
+e.g.
+http://coverartarchive.org/release/bcb3922d-d459-3e09-89ff-5b7621192af1
+
+Returns:
+
+{
+        "images":[{
+                "types":["Front"],
+                "front":true,
+                "back":false,
+                "edit":18595506,
+                "image":"http://coverartarchive.org/release/bcb3922d-d459-3e09-89ff-5b7621192af1/1645718578.jpg",
+                "comment":"",
+                "approved":true,
+                "thumbnails":{
+                        "large":"http://coverartarchive.org/release/bcb3922d-d459-3e09-89ff-5b7621192af1/1645718578-500.jpg",
+                        "small":"http://coverartarchive.org/release/bcb3922d-d459-3e09-89ff-5b7621192af1/1645718578-250.jpg"},
+                        "id":"1645718578"}
+                ],
+        "release":http://musicbrainz.org/release/bcb3922d-d459-3e09-89ff-5b7621192af1
+}
+
+
+
+
+
+
+
+

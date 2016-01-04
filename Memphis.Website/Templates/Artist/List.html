@@ -1,0 +1,31 @@
+﻿<div>
+    <button class="" ng-click="Paging.FirstPage()" ng-disabled="Paging.CurrentPage <= Paging.MinPage()">&laquo;</button>
+    <button class="" ng-click="Paging.PrevPage()" ng-disabled="Paging.CurrentPage <= Paging.MinPage()">&lsaquo;</button>
+    <button class="" ng-click="Paging.NextPage()" ng-disabled="Paging.CurrentPage >= Paging.MaxPage()">&rsaquo;</button>
+    <button class="" ng-click="Paging.LastPage()" ng-disabled="Paging.CurrentPage >= Paging.MaxPage()">&raquo;</button>
+</div>
+
+<form>
+    <div>
+        <input ng-model="SearchText">
+        <button type="submit" ng-click="Search(true)">go</button>
+    </div>
+</form>
+
+<div class="loading" ng-show="status.isLoading()">
+    loading...
+</div>
+
+<ul>
+    <li ng-repeat="artist in Artists">
+        {{artist.Name}}
+        <a href="#/artist/{{artist.ArtistId}}">edit...</a>
+        <a href="" ng-click="Delete(artist.ArtistId)">delete</a>
+    </li>
+</ul>
+
+<div>Page {{Paging.CurrentPage + 1}} of {{Paging.MaxPage() + 1}}</div>
+
+<div>
+    <a href="#/artist/new">new...</a>
+</div>

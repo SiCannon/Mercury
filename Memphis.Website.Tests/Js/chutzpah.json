@@ -1,0 +1,20 @@
+﻿{
+    "Framework": "jasmine",
+
+    "References": [
+        { "Path": "../../Memphis.Website/Scripts/angular.js", "IsTestFrameworkFile": "true" },
+        { "Path": "../../Memphis.Website/Scripts/angular-mocks.js", "IsTestFrameworkFile": "true" },
+        { "Path": "../../Memphis.Website/Scripts/angular-route.js", "IsTestFrameworkFile": "true" },
+        { "Path": "../../Memphis.Website/Scripts/angular-resource.js", "IsTestFrameworkFile": "true" },
+        { "Path": "../../Memphis.Website/Scripts/angular-sanitize.js", "IsTestFrameworkFile": "true" },
+        { "Path": "../../Memphis.Website/Scripts/angular-ui-select/select.js", "IsTestFrameworkFile": "true" },
+
+        { "Path": "../../Memphis.Website/Js/Modules" },
+        { "Path": "../../Memphis.Website/Js/Services" },
+        { "Path": "../../Memphis.Website/Js/Controllers" }
+    ],
+
+    "Tests": [
+        { "Path": "spec" }
+    ]
+}
